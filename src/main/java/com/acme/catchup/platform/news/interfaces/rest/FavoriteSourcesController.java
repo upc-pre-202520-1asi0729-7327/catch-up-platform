@@ -97,7 +97,7 @@ public class FavoriteSourcesController {
             @ApiResponse(responseCode = "404", description = "Favorite source(s) not found")})
     @Parameters({
             @Parameter(name = "newsApiKey", description = "The News API key associated with the favorite sources", required = true),
-            @Parameter(name = "sourceId", description = "The specific source ID to filter the favorite source", required = false)
+            @Parameter(name = "sourceId", description = "The specific source ID to filter the favorite source")
     })
     @GetMapping
     public ResponseEntity<?> getFavoriteSourcesWithParameters(
