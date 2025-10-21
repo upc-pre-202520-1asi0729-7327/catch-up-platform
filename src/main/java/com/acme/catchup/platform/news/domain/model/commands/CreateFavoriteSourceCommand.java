@@ -1,4 +1,4 @@
-package com.acme.catchup.platform.domain.model.commands;
+package com.acme.catchup.platform.news.domain.model.commands;
 
 public record CreateFavoriteSourceCommand(String newsApiKey, String sourceId) {
     public CreateFavoriteSourceCommand {

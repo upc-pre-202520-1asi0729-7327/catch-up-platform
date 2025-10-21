@@ -1,4 +1,4 @@
-package com.acme.catchup.platform.domain.model.queries;
+package com.acme.catchup.platform.news.domain.model.queries;
 
 public record GetFavoriteSourceByNewsApiKeyAndSourceIdQuery(String newsApiKey, String sourceId) {
     public GetFavoriteSourceByNewsApiKeyAndSourceIdQuery {

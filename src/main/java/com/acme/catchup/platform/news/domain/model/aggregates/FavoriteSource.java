@@ -1,6 +1,6 @@
-package com.acme.catchup.platform.domain.model.aggregates;
+package com.acme.catchup.platform.news.domain.model.aggregates;
 
-import com.acme.catchup.platform.domain.model.commands.CreateFavoriteSourceCommand;
+import com.acme.catchup.platform.news.domain.model.commands.CreateFavoriteSourceCommand;
 import jakarta.persistence.*;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
