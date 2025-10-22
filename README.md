@@ -1,31 +1,58 @@
-# Getting Started
+# Catch-Up Platform (cath-up-platform)
 
-### Reference Documentation
+## Overview
 
-For further reference, please consider the following sections:
+Catch-Up Platform is a small Spring Boot service that provides an API to manage users' favorite news sources. The project demonstrates a clean package structure separated into bounded contexts (news and shared) and follows simple command/query service patterns with JPA persistence.
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/3.5.6/maven-plugin)
-* [Create an OCI image](https://docs.spring.io/spring-boot/3.5.6/maven-plugin/build-image.html)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/3.5.6/reference/data/sql.html#data.sql.jpa-and-spring-data)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/3.5.6/reference/using/devtools.html)
-* [Spring Web](https://docs.spring.io/spring-boot/3.5.6/reference/web/servlet.html)
+## Features
 
-### Guides
+- List favorite sources scoped to a News API key
+- Retrieve a favorite source by its identifier
+- Retrieve a favorite source by News API key + source id
+- Create (persist) a new favorite source
+- Custom Hibernate naming strategy to convert identifiers to snake_case and plural table names.
 
-The following guides illustrate how to use some features concretely:
+## Technologies
 
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+- Java 25+ and Spring Boot
+- Spring Web (REST controllers)
+- Spring Data JPA (Hibernate)
+- Lombok (compile-time helpers)
+- PlantUML (architecture diagrams in `docs/`)
 
-### Maven Parent overrides
+## Technical stories
 
-Due to Maven's design, elements are inherited from the parent POM to the project POM.
-While most of the inheritance is fine, it also inherits unwanted elements like `<license>` and `<developers>` from the
-parent.
-To prevent this, the project POM contains empty overrides for these elements.
-If you manually switch to a different parent and actually want the inheritance, you need to remove those overrides.
+The API-focused technical stories for frontend integration are in [`docs/user-stories.md`](docs/user-stories.md).
 
+## Class diagram
+
+A PlantUML class diagram that reflects the code structure and bounded contexts is available at [`docs/class-diagram.puml`](docs/class-diagram.puml).
+
+## Getting started (quick)
+
+To run the application locally (recommended: macOS / Linux):
+
+```bash
+./mvnw spring-boot:run
+```
+
+Or build and run the jar:
+
+```bash
+./mvnw clean package
+java -jar target/*.jar
+```
+
+## Notes
+
+- This repository intentionally reflects a focused subset of functionality (favorites management). Delete operations are not currently implemented in the controllers.
+- For API integration details and acceptance criteria, see `docs/user-stories.md`.
+- For the system class diagram, see `docs/class-diagram.puml`.
+
+## Contributing
+
+Contributions, suggestions and corrections are welcome — open an issue or a pull request.
+
+## License & parent POM
+
+The project uses a parent POM; the project POM contains overrides to avoid inheriting certain parent metadata (like `<license>` and `<developers>`). If you change the parent POM and want the original metadata to be inherited, remove those overrides in `pom.xml`.
