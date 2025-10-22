@@ -11,7 +11,7 @@ As a frontend developer, I want to request the API to list favorite sources for 
 - Scenario: Returns one or more favorites
   - Given a request to list favorite sources filtered by `{newsApiKey}` is received
   - When the API finds one or more matching favorite resources
-  - Then the API responds with `200 OK` and returns a non-empty array of favorite source resources, with each resource including `id`, `newsApiKey`, `sourceId`, and `name`.
+  - Then the API responds with `200 OK` and returns a non-empty array of favorite source resources, with each resource including `id`, `newsApiKey`, and `sourceId`.
 - Scenario: Returns no favorites
   - Given a request to list favorite sources filtered by `{newsApiKey}` is received
   - When the API finds no matching resources
@@ -23,7 +23,7 @@ As a frontend developer, I want to request a favorite source by its `{id}` so th
 - Scenario: Found
   - Given a request for a favorite source identified by `{id}` is received
   - When the API finds the resource
-  - Then the API responds with `200 OK` and returns the favorite source resource (`id`, `newsApiKey`, `sourceId`, `name`).
+  - Then the API responds with `200 OK` and returns the favorite source resource (`id`, `newsApiKey`, `sourceId`).
 - Scenario: Not found
   - Given a request for a favorite source identified by a non-existent `{id}` is received
   - When the API does not find the resource
@@ -55,9 +55,9 @@ As a frontend developer, I want to query the API with `{newsApiKey}` and `{sourc
 As a frontend developer, I want to add a favorite source through the API so that I can implement the creation feature in my application.
 #### Acceptance criteria:
 - Scenario: Successful create
-  - Given a creation request that includes required fields (`newsApiKey`, `sourceId`, `name`) is received
+  - Given a creation request that includes required fields (`newsApiKey`, `sourceId`) is received
   - When the API validates and persists the new resource successfully
-  - Then the API responds with `201 Created`, includes a `Location` header pointing to the new resource, and returns the created resource representation (`id`, `newsApiKey`, `sourceId`, `name`).
+  - Then the API responds with `201 Created`, and returns the created resource representation (`id`, `newsApiKey`, `sourceId`).
 - Scenario: Validation error
   - Given a creation request missing required fields or containing invalid values is received
   - When the API validation fails
