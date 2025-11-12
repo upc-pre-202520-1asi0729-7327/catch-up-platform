@@ -12,7 +12,7 @@
 # Step 1: Build the application using Maven
 
 # Use a lightweight OpenJDK 25 base image
-FROM openjdk:25-jdk AS build
+FROM maven:3.9.11-eclipse-temurin-25 AS build
 # Set the active profile for the Spring Boot application
 ENV SPRING_PROFILES_ACTIVE=prod
 # Set the working directory inside the container
